@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/lib/AddressSet.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">all files</a> / <a href="index.html">contracts/lib/</a> AddressSet.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/16</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: Unlicensed
+&nbsp;
+pragma solidity ^0.8.4;
+&nbsp;
+/**
+ * @notice Key sets with enumeration and delete. Uses mappings for random
+ * and existence checks and dynamic arrays for enumeration. Key uniqueness is enforced. 
+ * @dev Sets are unordered. Delete operations reorder keys. All operations have a 
+ * fixed gas cost at any scale, O(1). 
+ * author: Rob Hitchens
+ */
+&nbsp;
+library AddressSet {
+    
+    struct Set {
+        mapping(address =&gt; uint) keyPointers;
+        address[] keyList;
+    }
+&nbsp;
+    /**
+     * @notice insert a key. 
+     * @dev duplicate keys are not permitted.
+     * @param self storage pointer to a Set. 
+     * @param key value to insert.
+     */    
+<span class="fstat-no" title="function not covered" >    function insert(Set storage self, address key) internal {</span>
+<span class="cstat-no" title="statement not covered" >        require(!exists(self, key), "AddressSet: key already exists in the set.")</span>;
+<span class="cstat-no" title="statement not covered" >        self.keyPointers[key] = self.keyList.length</span>;
+<span class="cstat-no" title="statement not covered" >        self.keyList.push(key)</span>;
+    }
+&nbsp;
+    /**
+     * @notice remove a key.
+     * @dev key to remove must exist. 
+     * @param self storage pointer to a Set.
+     * @param key value to remove.
+     */    
+<span class="fstat-no" title="function not covered" >    function remove(Set storage self, address key) internal {</span>
+<span class="cstat-no" title="statement not covered" >        require(exists(self, key), "AddressSet: key does not exist in the set.")</span>;
+<span class="cstat-no" title="statement not covered" >        uint last = count(self) - 1;</span>
+<span class="cstat-no" title="statement not covered" >        uint rowToReplace = self.keyPointers[key];</span>
+<span class="cstat-no" title="statement not covered" >        if(rowToReplace != last) {</span>
+<span class="cstat-no" title="statement not covered" >            address keyToMove = self.keyList[last];</span>
+<span class="cstat-no" title="statement not covered" >            self.keyPointers[keyToMove] = rowToReplace</span>;
+<span class="cstat-no" title="statement not covered" >            self.keyList[rowToReplace] = keyToMove</span>;
+        }
+        delete self.keyPointers[key];
+<span class="cstat-no" title="statement not covered" >        self.keyList.pop()</span>;
+    }
+&nbsp;
+    /**
+     * @notice count the keys.
+     * @param self storage pointer to a Set. 
+     */       
+<span class="fstat-no" title="function not covered" >    function count(Set storage self) internal view returns(uint) {</span>
+<span class="cstat-no" title="statement not covered" >        return(self.keyList.length);</span>
+    }
+&nbsp;
+    /**
+     * @notice check if a key is in the Set.
+     * @param self storage pointer to a Set.
+     * @param key value to check. 
+     * @return bool true: Set member, false: not a Set member.
+     */  
+<span class="fstat-no" title="function not covered" >    function exists(Set storage self, address key) internal view returns(bool) {</span>
+<span class="cstat-no" title="statement not covered" >        if(self.keyList.length == 0) <span class="cstat-no" title="statement not covered" >return false;</span></span>
+<span class="cstat-no" title="statement not covered" >        return self.keyList[self.keyPointers[key]] == key;</span>
+    }
+&nbsp;
+    /**
+     * @notice fetch a key by row (enumerate).
+     * @param self storage pointer to a Set.
+     * @param index row to enumerate. Must be &lt; count() - 1.
+     */      
+<span class="fstat-no" title="function not covered" >    function keyAtIndex(Set storage self, uint index) internal view returns(address) {</span>
+<span class="cstat-no" title="statement not covered" >        return self.keyList[index];</span>
+    }
+}</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Nov 15 2021 22:59:27 GMT+0500 (Pakistan Standard Time)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/Factiiv_A.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> Factiiv_A.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">97.62% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>41/42</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">96.55% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>28/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">95.35% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>41/43</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+&nbsp;
+pragma solidity 0.8.4; 
+&nbsp;
+import "./FactiivStore.sol";
+import "@openzeppelin/contracts/access/AccessControl.sol";
+import "./_opengsn/_BaseRelayRecipient.sol";
+&nbsp;
+contract Factiiv_A is FactiivStore, BaseRelayRecipient, AccessControl{
+&nbsp;
+  using Bytes32Set for Bytes32Set.Set;
+&nbsp;
+  bytes32 public constant GOVERNANCE_ROLE = keccak256("GOVERNANCE_ROLE");
+  bytes32 public constant ATTESTOR_ROLE = keccak256("ATTESTER_ROLE");
+  bytes32 public constant ARBITRATOR_ROLE = keccak256("ARBITRATOR ROLE");
+  address public _root;
+&nbsp;
+  //Testing Errors 
+&nbsp;
+  // function createRelationship()
+  // function createAttestation()
+  // and probably every other function using Bytes as arguments 
+  // Error: invalid arrayify value ()
+&nbsp;
+  constructor(address root ,address forwarder) {
+      _setupRole(DEFAULT_ADMIN_ROLE, root);
+    _setupRole(GOVERNANCE_ROLE, root);
+    trustedForwarder = forwarder;
+    _root = msg.sender;
+  }
+&nbsp;
+  string public override versionRecipient = "2.2.0";
+  /***************************
+   * Master Tables
+   ***************************/
+&nbsp;
+  function setMinimumAmount(uint256 minimum) external  onlyRole(GOVERNANCE_ROLE){
+    minimumAmount = minimum;
+    emit SetMinimum(_msgSender(), minimum);
+  }
+  
+  function getMinimumAmount() external view returns (uint256)
+  {
+    return minimumAmount;
+  }
+&nbsp;
+    function getCurrentAccount() external view returns (address)
+  {
+    return address(msg.sender);
+  }
+&nbsp;
+&nbsp;
+  function createRelationshipType(string memory desc)  external onlyRole(GOVERNANCE_ROLE)  returns (bytes32 id) {
+    id = _createRelationshipType(_msgSender(), desc);
+  }
+&nbsp;
+  function updateRelationshipType(bytes32 id, string memory desc) external onlyRole(GOVERNANCE_ROLE) {
+    _updateRelationshipType(_msgSender(), id, desc);
+  }
+&nbsp;
+  function createAttestationType(string memory desc) external onlyRole(GOVERNANCE_ROLE)  returns (bytes32 id) {
+    id = _createAttestationType(_msgSender(), desc);
+  }
+&nbsp;
+  function updateAttestationType(bytes32 id, string memory desc) external  onlyRole(GOVERNANCE_ROLE) {
+    _updateAttestationType(_msgSender(), id, desc);
+  }
+&nbsp;
+  /***************************
+   * Attestations
+   ***************************/
+  function createAttestation(address subject, bytes32 typeId, string memory payload) external onlyRole(ATTESTOR_ROLE) returns (bytes32 id) {
+    id = _createAttestation(_msgSender(), subject, typeId, payload);
+  }
+&nbsp;
+  function updateAttestation(address subject, bytes32 id, string memory payload) external onlyRole(ATTESTOR_ROLE) {
+    _updateAttestation(_msgSender(), subject, id, payload);
+  }
+&nbsp;
+  /***************************
+   * Relationships
+   ***************************/
+  function createRelationship(bytes32 typeId, string memory desc, uint256 amount, address to) external returns(bytes32 id) {
+    id = _createRelationship(_msgSender(), typeId, desc, amount, to);
+  }
+&nbsp;
+  function updateRelationship(bytes32 id, Lifecycle lifecycle, string memory metadata) external {
+    <span class="missing-if-branch" title="else path not taken" >E</span>require(
+      canUpdateRelationship(_msgSender(), id), 
+      "Factiiv.updateRelationship : permission denied"
+    );
+&nbsp;
+    // TODO: Logical rules
+    /* 
+    Strict order of events:
+    1. Propose
+    2. Accept
+    3. Close
+    4. Ratings (both kinds)
+&nbsp;
+    Only "to" can "Accept"
+    Only "from" can close
+    Both can offer Ratings, only once
+&nbsp;
+    Ratings:
+    Require normalized input (e.g. "1" to "5") for ratings strings. Consider efficiency.
+    */
+&nbsp;
+    _updateRelationship(_msgSender(), id, lifecycle, metadata);
+  }
+&nbsp;
+  /***************************
+   * delete relationship
+   ***************************/  
+&nbsp;
+  function deleteRelationship(bytes32 id) external {
+    // require(
+    //   canUpdateRelationship(_msgSender(), id),
+    //   "Factiiv.deleteRelationship : not a participant, arbitrator or goverance");
+    // require(
+    //   relationshipStage(id) == Lifecycle.Proposed,
+    //   "Factiiv.deleteRelationship : relationship is accepted"
+    // );
+    _deleteRelationship(_msgSender(), id);
+  }
+&nbsp;
+  function arbitrationDelete(bytes32 id) external  {
+    _deleteRelationship(_msgSender(), id);
+  }
+&nbsp;
+  /***************************
+   * Access
+   ***************************/ 
+&nbsp;
+  function relationshipStage(bytes32 id) public view returns(Lifecycle lifecycle) {
+    Relationship storage r = relationship[id];
+    uint256 historyCount = r.history.length;
+    Stage storage s = r.history[historyCount-1];
+    lifecycle = s.lifecycle;
+  }
+&nbsp;
+  function canUpdateRelationship(address updater, bytes32 id) public view returns(bool) {
+    Relationship storage r = relationship[id];
+    return(
+      r.from == updater ||
+      r.to == updater ||
+      hasRole(ARBITRATOR_ROLE, _msgSender()) ||
+      hasRole(GOVERNANCE_ROLE, _msgSender())
+    );
+  }  
+&nbsp;
+  /***************************
+   * UID Generator
+   ***************************/    
+&nbsp;
+<span class="fstat-no" title="function not covered" >  function genUid() private returns (bytes32) {</span>
+    nonce++;
+<span class="cstat-no" title="statement not covered" >    return keccak256(abi.encodePacked(address(this), nonce));</span>
+  }  
+&nbsp;
+  /***************************
+   * View 
+   ***************************/  
+&nbsp;
+  /*** master tables ***/  
+&nbsp;
+  function relationshipTypeCount() external view returns(uint256 count) {
+    count = relationshipTypeSet.count();
+  }
+&nbsp;
+  function relationshipTypeIdAtIndex(uint256 row) external view returns(bytes32 id) {
+    id = relationshipTypeSet.keyAtIndex(row);
+  }
+&nbsp;
+  function attestationTypeCount() external view returns(uint256 count) {
+    count = attestationTypeSet.count();
+  }
+&nbsp;
+  function attestationTypeAtIndex(uint256 row) external view returns(bytes32 id) {
+    id = attestationTypeSet.keyAtIndex(row);
+  }
+&nbsp;
+    /*** users ***/ 
+&nbsp;
+  function userMeta(address userAddr) external view returns(uint256 linksOut, uint256 linksIn, uint256 attestations) {
+    User storage u = user[userAddr];
+    return(
+      u.senderJoinSet.count(),
+      u.receiverJoinSet.count(),
+      u.attestationSet.count()
+    );
+  }
+&nbsp;
+  function userSendRelationshipAtIndex(address userAddr, uint256 row) external view returns(bytes32 id) {
+    User storage u = user[userAddr];
+    id = u.senderJoinSet.keyAtIndex(row);
+  }
+&nbsp;
+  function userReceiveRelationshipAtIndex(address userAddr, uint256 row) external view returns(bytes32 id) {
+    User storage u = user[userAddr];
+    id = u.receiverJoinSet.keyAtIndex(row);
+  }
+&nbsp;
+  function userAttestationAtIndex(address userAddr, uint256 row) external view returns(bytes32 id) {
+    User storage u = user[userAddr];
+    id = u.attestationSet.keyAtIndex(row);
+  }
+&nbsp;
+    /*** global ***/ 
+&nbsp;
+  function relationshipCount() external view returns(uint256 count) {
+    count = relationshipSet.count();
+  }
+&nbsp;
+  function attestationCount() external view returns(uint256 count) {
+    count = attestationSet.count();
+  }
+&nbsp;
+  function relationshipAtIndex(uint256 row) external view returns(bytes32 id) {
+    id = relationshipSet.keyAtIndex(row);
+  }
+&nbsp;
+  function attestationAtIndex(uint256 row) external view returns(bytes32 id) {
+    id = attestationSet.keyAtIndex(row);
+  }
+&nbsp;
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Nov 15 2021 22:59:27 GMT+0500 (Pakistan Standard Time)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/@openzeppelin/contracts/governance/Governor.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../index.html">all files</a> / <a href="index.html">contracts/@openzeppelin/contracts/governance/</a> Governor.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/62</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/26</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/59</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+&nbsp;
+pragma solidity ^0.8.0;
+&nbsp;
+import "../utils/cryptography/ECDSA.sol";
+import "../utils/cryptography/draft-EIP712.sol";
+import "../utils/introspection/ERC165.sol";
+import "../utils/math/SafeCast.sol";
+import "../utils/Address.sol";
+import "../utils/Context.sol";
+import "../utils/Timers.sol";
+import "./IGovernor.sol";
+&nbsp;
+/**
+ * @dev Core of the governance system, designed to be extended though various modules.
+ *
+ * This contract is abstract and requires several function to be implemented in various modules:
+ *
+ * - A counting module must implement {quorum}, {_quorumReached}, {_voteSucceeded} and {_countVote}
+ * - A voting module must implement {getVotes}
+ * - Additionanly, the {votingPeriod} must also be implemented
+ *
+ * _Available since v4.3._
+ */
+abstract contract Governor is Context, ERC165, EIP712, IGovernor {
+    using SafeCast for uint256;
+    using Timers for Timers.BlockNumber;
+&nbsp;
+    bytes32 public constant BALLOT_TYPEHASH = keccak256("Ballot(uint256 proposalId,uint8 support)");
+&nbsp;
+    struct ProposalCore {
+        Timers.BlockNumber voteStart;
+        Timers.BlockNumber voteEnd;
+        bool executed;
+        bool canceled;
+    }
+&nbsp;
+    string private _name;
+&nbsp;
+    mapping(uint256 =&gt; ProposalCore) private _proposals;
+&nbsp;
+    /**
+     * @dev Restrict access to governor executing address. Some module might override the _executor function to make
+     * sure this modifier is consistant with the execution model.
+     */
+<span class="fstat-no" title="function not covered" >    modifier onlyGovernance() {</span>
+<span class="cstat-no" title="statement not covered" >        require(_msgSender() == _executor(), "Governor: onlyGovernance")</span>;
+        _;
+    }
+&nbsp;
+    /**
+     * @dev Sets the value for {name} and {version}
+     */
+<span class="fstat-no" title="function not covered" >    constructor(string memory name_) EIP712(name_, version()) {</span>
+<span class="cstat-no" title="statement not covered" >        _name = name_</span>;
+    }
+&nbsp;
+    /**
+     * @dev See {IERC165-supportsInterface}.
+     */
+<span class="fstat-no" title="function not covered" >    function supportsInterface(bytes4 interfaceId) public view virtual override(IERC165, ERC165) returns (bool) {</span>
+<span class="cstat-no" title="statement not covered" >        return interfaceId == type(IGovernor).interfaceId || super.supportsInterface(interfaceId);</span>
+    }
+&nbsp;
+    /**
+     * @dev See {IGovernor-name}.
+     */
+<span class="fstat-no" title="function not covered" >    function name() public view virtual override returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >        return _name;</span>
+    }
+&nbsp;
+    /**
+     * @dev See {IGovernor-version}.
+     */
+<span class="fstat-no" title="function not covered" >    function version() public view virtual override returns (string memory) {</span>
+<span class="cstat-no" title="statement not covered" >        return "1";</span>
+    }
+&nbsp;
+    /**
+     * @dev See {IGovernor-hashProposal}.
+     *
+     * The proposal id is produced by hashing the RLC encoded `targets` array, the `values` array, the `calldatas` array
+     * and the descriptionHash (bytes32 which itself is the keccak256 hash of the description string). This proposal id
+     * can be produced from the proposal data which is part of the {ProposalCreated} event. It can even be computed in
+     * advance, before the proposal is submitted.
+     *
+     * Note that the chainId and the governor address are not part of the proposal id computation. Consequently, the
+     * same proposal (with same operation and same description) will have the same id if submitted on multiple governors
+     * accross multiple networks. This also means that in order to execute the same operation twice (on the same
+     * governor) the proposer will have to change the description in order to avoid proposal id conflicts.
+     */
+<span class="fstat-no" title="function not covered" >    function hashProposal(</span>
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        bytes32 descriptionHash
+    ) public pure virtual override returns (uint256) {
+<span class="cstat-no" title="statement not covered" >        return uint256(keccak256(abi.encode(targets, values, calldatas, descriptionHash)));</span>
+    }
+&nbsp;
+    /**
+     * @dev See {IGovernor-state}.
+     */
+<span class="fstat-no" title="function not covered" >    function state(uint256 proposalId) public view virtual override returns (ProposalState) {</span>
+<span class="cstat-no" title="statement not covered" >        ProposalCore memory proposal = _proposals[proposalId];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (proposal.executed) {</span>
+<span class="cstat-no" title="statement not covered" >            return ProposalState.Executed;</span>
+        } else <span class="cstat-no" title="statement not covered" >if (proposal.canceled) {</span>
+<span class="cstat-no" title="statement not covered" >            return ProposalState.Canceled;</span>
+        } else <span class="cstat-no" title="statement not covered" >if (proposal.voteStart.isPending()) {</span>
+<span class="cstat-no" title="statement not covered" >            return ProposalState.Pending;</span>
+        } else <span class="cstat-no" title="statement not covered" >if (proposal.voteEnd.isPending()) {</span>
+<span class="cstat-no" title="statement not covered" >            return ProposalState.Active;</span>
+        } else <span class="cstat-no" title="statement not covered" >if (proposal.voteEnd.isExpired()) {</span>
+<span class="cstat-no" title="statement not covered" >            return</span>
+                _quorumReached(proposalId) &amp;&amp; _voteSucceeded(proposalId)
+                    ? ProposalState.Succeeded
+                    : ProposalState.Defeated;
+        } else {
+<span class="cstat-no" title="statement not covered" >            revert("Governor: unknown proposal id")</span>;
+        }
+    }
+&nbsp;
+    /**
+     * @dev See {IGovernor-proposalSnapshot}.
+     */
+<span class="fstat-no" title="function not covered" >    function proposalSnapshot(uint256 proposalId) public view virtual override returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        return _proposals[proposalId].voteStart.getDeadline();</span>
+    }
+&nbsp;
+    /**
+     * @dev See {IGovernor-proposalDeadline}.
+     */
+<span class="fstat-no" title="function not covered" >    function proposalDeadline(uint256 proposalId) public view virtual override returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        return _proposals[proposalId].voteEnd.getDeadline();</span>
+    }
+&nbsp;
+    /**
+     * @dev Amount of votes already cast passes the threshold limit.
+     */
+    function _quorumReached(uint256 proposalId) internal view virtual returns (bool);
+&nbsp;
+    /**
+     * @dev Is the proposal successful or not.
+     */
+    function _voteSucceeded(uint256 proposalId) internal view virtual returns (bool);
+&nbsp;
+    /**
+     * @dev Register a vote with a given support and voting weight.
+     *
+     * Note: Support is generic and can represent various things depending on the voting system used.
+     */
+    function _countVote(
+        uint256 proposalId,
+        address account,
+        uint8 support,
+        uint256 weight
+    ) internal virtual;
+&nbsp;
+    /**
+     * @dev See {IGovernor-propose}.
+     */
+<span class="fstat-no" title="function not covered" >    function propose(</span>
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        string memory description
+    ) public virtual override returns (uint256) {
+<span class="cstat-no" title="statement not covered" >        uint256 proposalId = hashProposal(targets, values, calldatas, keccak256(bytes(description)));</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        require(targets.length == values.length, "Governor: invalid proposal length")</span>;
+<span class="cstat-no" title="statement not covered" >        require(targets.length == calldatas.length, "Governor: invalid proposal length")</span>;
+<span class="cstat-no" title="statement not covered" >        require(targets.length &gt; 0, "Governor: empty proposal")</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        ProposalCore storage proposal = _proposals[proposalId];</span>
+<span class="cstat-no" title="statement not covered" >        require(proposal.voteStart.isUnset(), "Governor: proposal already exists")</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        uint64 snapshot = block.number.toUint64() + votingDelay().toUint64();</span>
+<span class="cstat-no" title="statement not covered" >        uint64 deadline = snapshot + votingPeriod().toUint64();</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        proposal.voteStart.setDeadline(snapshot)</span>;
+<span class="cstat-no" title="statement not covered" >        proposal.voteEnd.setDeadline(deadline)</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        emit ProposalCreated(</span>
+            proposalId,
+            _msgSender(),
+            targets,
+            values,
+            new string[](targets.length),
+            calldatas,
+            snapshot,
+            deadline,
+            description
+        );
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return proposalId;</span>
+    }
+&nbsp;
+    /**
+     * @dev See {IGovernor-execute}.
+     */
+<span class="fstat-no" title="function not covered" >    function execute(</span>
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        bytes32 descriptionHash
+    ) public payable virtual override returns (uint256) {
+<span class="cstat-no" title="statement not covered" >        uint256 proposalId = hashProposal(targets, values, calldatas, descriptionHash);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        ProposalState status = state(proposalId);</span>
+<span class="cstat-no" title="statement not covered" >        require(</span>
+            status == ProposalState.Succeeded || status == ProposalState.Queued,
+            "Governor: proposal not successful"
+        );
+<span class="cstat-no" title="statement not covered" >        _proposals[proposalId].executed = true</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        emit ProposalExecuted(proposalId);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        _execute(proposalId, targets, values, calldatas, descriptionHash)</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return proposalId;</span>
+    }
+&nbsp;
+    /**
+     * @dev Internal execution mechanism. Can be overriden to implement different execution mechanism
+     */
+<span class="fstat-no" title="function not covered" >    function _execute(</span>
+        uint256, /* proposalId */
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        bytes32 /*descriptionHash*/
+    ) internal virtual {
+<span class="cstat-no" title="statement not covered" >        string memory errorMessage = "Governor: call reverted without message";</span>
+<span class="cstat-no" title="statement not covered" >        for (uint256 i = 0; i &lt; targets.length; ++i) {</span>
+<span class="cstat-no" title="statement not covered" >            (bool success, bytes memory returndata) = targets[i].call{value: values[i]}(calldatas[i]);</span>
+<span class="cstat-no" title="statement not covered" >            Address.verifyCallResult(success, returndata, errorMessage)</span>;
+        }
+    }
+&nbsp;
+    /**
+     * @dev Internal cancel mechanism: locks up the proposal timer, preventing it from being re-submitted. Marks it as
+     * canceled to allow distinguishing it from executed proposals.
+     *
+     * Emits a {IGovernor-ProposalCanceled} event.
+     */
+<span class="fstat-no" title="function not covered" >    function _cancel(</span>
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        bytes32 descriptionHash
+    ) internal virtual returns (uint256) {
+<span class="cstat-no" title="statement not covered" >        uint256 proposalId = hashProposal(targets, values, calldatas, descriptionHash);</span>
+<span class="cstat-no" title="statement not covered" >        ProposalState status = state(proposalId);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        require(</span>
+            status != ProposalState.Canceled &amp;&amp; status != ProposalState.Expired &amp;&amp; status != ProposalState.Executed,
+            "Governor: proposal not active"
+        );
+<span class="cstat-no" title="statement not covered" >        _proposals[proposalId].canceled = true</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        emit ProposalCanceled(proposalId);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return proposalId;</span>
+    }
+&nbsp;
+    /**
+     * @dev See {IGovernor-castVote}.
+     */
+<span class="fstat-no" title="function not covered" >    function castVote(uint256 proposalId, uint8 support) public virtual override returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        address voter = _msgSender();</span>
+<span class="cstat-no" title="statement not covered" >        return _castVote(proposalId, voter, support, "");</span>
+    }
+&nbsp;
+    /**
+     * @dev See {IGovernor-castVoteWithReason}.
+     */
+<span class="fstat-no" title="function not covered" >    function castVoteWithReason(</span>
+        uint256 proposalId,
+        uint8 support,
+        string calldata reason
+    ) public virtual override returns (uint256) {
+<span class="cstat-no" title="statement not covered" >        address voter = _msgSender();</span>
+<span class="cstat-no" title="statement not covered" >        return _castVote(proposalId, voter, support, reason);</span>
+    }
+&nbsp;
+    /**
+     * @dev See {IGovernor-castVoteBySig}.
+     */
+<span class="fstat-no" title="function not covered" >    function castVoteBySig(</span>
+        uint256 proposalId,
+        uint8 support,
+        uint8 v,
+        bytes32 r,
+        bytes32 s
+    ) public virtual override returns (uint256) {
+<span class="cstat-no" title="statement not covered" >        address voter = ECDSA.recover(</span>
+            _hashTypedDataV4(keccak256(abi.encode(BALLOT_TYPEHASH, proposalId, support))),
+            v,
+            r,
+            s
+        );
+<span class="cstat-no" title="statement not covered" >        return _castVote(proposalId, voter, support, "");</span>
+    }
+&nbsp;
+    /**
+     * @dev Internal vote casting mechanism: Check that the vote is pending, that it has not been cast yet, retrieve
+     * voting weight using {IGovernor-getVotes} and call the {_countVote} internal function.
+     *
+     * Emits a {IGovernor-VoteCast} event.
+     */
+<span class="fstat-no" title="function not covered" >    function _castVote(</span>
+        uint256 proposalId,
+        address account,
+        uint8 support,
+        string memory reason
+    ) internal virtual returns (uint256) {
+<span class="cstat-no" title="statement not covered" >        ProposalCore storage proposal = _proposals[proposalId];</span>
+<span class="cstat-no" title="statement not covered" >        require(state(proposalId) == ProposalState.Active, "Governor: vote not currently active")</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        uint256 weight = getVotes(account, proposal.voteStart.getDeadline());</span>
+<span class="cstat-no" title="statement not covered" >        _countVote(proposalId, account, support, weight)</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        emit VoteCast(account, proposalId, support, weight, reason);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return weight;</span>
+    }
+&nbsp;
+    /**
+     * @dev Address through which the governor executes action. Will be overloaded by module that execute actions
+     * through another contract such as a timelock.
+     */
+<span class="fstat-no" title="function not covered" >    function _executor() internal view virtual returns (address) {</span>
+<span class="cstat-no" title="statement not covered" >        return address(this);</span>
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Nov 15 2021 22:59:27 GMT+0500 (Pakistan Standard Time)
+</div>
+</div>
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

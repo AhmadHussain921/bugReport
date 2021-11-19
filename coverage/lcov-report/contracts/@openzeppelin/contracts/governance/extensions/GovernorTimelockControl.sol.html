@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">all files</a> / <a href="index.html">contracts/@openzeppelin/contracts/governance/extensions/</a> GovernorTimelockControl.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/11</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/30</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+&nbsp;
+pragma solidity ^0.8.0;
+&nbsp;
+import "./IGovernorTimelock.sol";
+import "../Governor.sol";
+import "../TimelockController.sol";
+&nbsp;
+/**
+ * @dev Extension of {Governor} that binds the execution process to an instance of {TimelockController}. This adds a
+ * delay, enforced by the {TimelockController} to all successful proposal (in addition to the voting duration). The
+ * {Governor} needs the proposer (an ideally the executor) roles for the {Governor} to work properly.
+ *
+ * Using this model means the proposal will be operated by the {TimelockController} and not by the {Governor}. Thus,
+ * the assets and permissions must be attached to the {TimelockController}. Any asset sent to the {Governor} will be
+ * inaccessible.
+ *
+ * _Available since v4.3._
+ */
+abstract contract GovernorTimelockControl is IGovernorTimelock, Governor {
+    TimelockController private _timelock;
+    mapping(uint256 =&gt; bytes32) private _timelockIds;
+&nbsp;
+    /**
+     * @dev Emitted when the timelock controller used for proposal execution is modified.
+     */
+    event TimelockChange(address oldTimelock, address newTimelock);
+&nbsp;
+    /**
+     * @dev Set the timelock.
+     */
+<span class="fstat-no" title="function not covered" >    constructor(TimelockController timelockAddress) {</span>
+<span class="cstat-no" title="statement not covered" >        _updateTimelock(timelockAddress)</span>;
+    }
+&nbsp;
+    /**
+     * @dev See {IERC165-supportsInterface}.
+     */
+<span class="fstat-no" title="function not covered" >    function supportsInterface(bytes4 interfaceId) public view virtual override(IERC165, Governor) returns (bool) {</span>
+<span class="cstat-no" title="statement not covered" >        return interfaceId == type(IGovernorTimelock).interfaceId || super.supportsInterface(interfaceId);</span>
+    }
+&nbsp;
+    /**
+     * @dev Overriden version of the {Governor-state} function with added support for the `Queued` status.
+     */
+<span class="fstat-no" title="function not covered" >    function state(uint256 proposalId) public view virtual override(IGovernor, Governor) returns (ProposalState) {</span>
+<span class="cstat-no" title="statement not covered" >        ProposalState status = super.state(proposalId);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (status != ProposalState.Succeeded) {</span>
+<span class="cstat-no" title="statement not covered" >            return status;</span>
+        }
+&nbsp;
+        // core tracks execution, so we just have to check if successful proposal have been queued.
+<span class="cstat-no" title="statement not covered" >        bytes32 queueid = _timelockIds[proposalId];</span>
+<span class="cstat-no" title="statement not covered" >        if (queueid == bytes32(0)) {</span>
+<span class="cstat-no" title="statement not covered" >            return status;</span>
+        } else <span class="cstat-no" title="statement not covered" >if (_timelock.isOperationDone(queueid)) {</span>
+<span class="cstat-no" title="statement not covered" >            return ProposalState.Executed;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            return ProposalState.Queued;</span>
+        }
+    }
+&nbsp;
+    /**
+     * @dev Public accessor to check the address of the timelock
+     */
+<span class="fstat-no" title="function not covered" >    function timelock() public view virtual override returns (address) {</span>
+<span class="cstat-no" title="statement not covered" >        return address(_timelock);</span>
+    }
+&nbsp;
+    /**
+     * @dev Public accessor to check the eta of a queued proposal
+     */
+<span class="fstat-no" title="function not covered" >    function proposalEta(uint256 proposalId) public view virtual override returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        uint256 eta = _timelock.getTimestamp(_timelockIds[proposalId]);</span>
+<span class="cstat-no" title="statement not covered" >        return eta == 1 ? 0 : eta;</span> // _DONE_TIMESTAMP (1) should be replaced with a 0 value
+    }
+&nbsp;
+    /**
+     * @dev Function to queue a proposal to the timelock.
+     */
+<span class="fstat-no" title="function not covered" >    function queue(</span>
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        bytes32 descriptionHash
+    ) public virtual override returns (uint256) {
+<span class="cstat-no" title="statement not covered" >        uint256 proposalId = hashProposal(targets, values, calldatas, descriptionHash);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        require(state(proposalId) == ProposalState.Succeeded, "Governor: proposal not successful")</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        uint256 delay = _timelock.getMinDelay();</span>
+<span class="cstat-no" title="statement not covered" >        _timelockIds[proposalId] = _timelock.hashOperationBatch(targets, values, calldatas, 0, descriptionHash)</span>;
+<span class="cstat-no" title="statement not covered" >        _timelock.scheduleBatch(targets, values, calldatas, 0, descriptionHash, delay)</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        emit ProposalQueued(proposalId, block.timestamp + delay);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return proposalId;</span>
+    }
+&nbsp;
+    /**
+     * @dev Overriden execute function that run the already queued proposal through the timelock.
+     */
+<span class="fstat-no" title="function not covered" >    function _execute(</span>
+        uint256, /* proposalId */
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        bytes32 descriptionHash
+    ) internal virtual override {
+<span class="cstat-no" title="statement not covered" >        _timelock.executeBatch{value: msg.value}(targets, values, calldatas, 0, descriptionHash)</span>;
+    }
+&nbsp;
+    /**
+     * @dev Overriden version of the {Governor-_cancel} function to cancel the timelocked proposal if it as already
+     * been queued.
+     */
+<span class="fstat-no" title="function not covered" >    function _cancel(</span>
+        address[] memory targets,
+        uint256[] memory values,
+        bytes[] memory calldatas,
+        bytes32 descriptionHash
+    ) internal virtual override returns (uint256) {
+<span class="cstat-no" title="statement not covered" >        uint256 proposalId = super._cancel(targets, values, calldatas, descriptionHash);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (_timelockIds[proposalId] != 0) {</span>
+<span class="cstat-no" title="statement not covered" >            _timelock.cancel(_timelockIds[proposalId])</span>;
+            delete _timelockIds[proposalId];
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return proposalId;</span>
+    }
+&nbsp;
+    /**
+     * @dev Address through which the governor executes action. In this case, the timelock.
+     */
+<span class="fstat-no" title="function not covered" >    function _executor() internal view virtual override returns (address) {</span>
+<span class="cstat-no" title="statement not covered" >        return address(_timelock);</span>
+    }
+&nbsp;
+    /**
+     * @dev Public endpoint to update the underlying timelock instance. Restricted to the timelock itself, so updates
+     * must be proposed, scheduled and executed using the {Governor} workflow.
+     */
+<span class="fstat-no" title="function not covered" >    function updateTimelock(TimelockController newTimelock) external virtual onlyGovernance {</span>
+<span class="cstat-no" title="statement not covered" >        _updateTimelock(newTimelock)</span>;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _updateTimelock(TimelockController newTimelock) private {</span>
+<span class="cstat-no" title="statement not covered" >        emit TimelockChange(address(_timelock), address(newTimelock));</span>
+<span class="cstat-no" title="statement not covered" >        _timelock = newTimelock</span>;
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Nov 15 2021 22:59:27 GMT+0500 (Pakistan Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../index.html">all files</a> / <a href="index.html">contracts/@openzeppelin/contracts/token/ERC20/extensions/</a> ERC20Votes.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/50</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/18</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/50</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+&nbsp;
+pragma solidity ^0.8.0;
+&nbsp;
+import "./draft-ERC20Permit.sol";
+import "../../../utils/math/Math.sol";
+import "../../../utils/math/SafeCast.sol";
+import "../../../utils/cryptography/ECDSA.sol";
+&nbsp;
+/**
+ * @dev Extension of ERC20 to support Compound-like voting and delegation. This version is more generic than Compound's,
+ * and supports token supply up to 2^224^ - 1, while COMP is limited to 2^96^ - 1.
+ *
+ * NOTE: If exact COMP compatibility is required, use the {ERC20VotesComp} variant of this module.
+ *
+ * This extension keeps a history (checkpoints) of each account's vote power. Vote power can be delegated either
+ * by calling the {delegate} function directly, or by providing a signature to be used with {delegateBySig}. Voting
+ * power can be queried through the public accessors {getVotes} and {getPastVotes}.
+ *
+ * By default, token balance does not account for voting power. This makes transfers cheaper. The downside is that it
+ * requires users to delegate to themselves in order to activate checkpoints and have their voting power tracked.
+ * Enabling self-delegation can easily be done by overriding the {delegates} function. Keep in mind however that this
+ * will significantly increase the base gas cost of transfers.
+ *
+ * _Available since v4.2._
+ */
+abstract contract ERC20Votes is ERC20Permit {
+    struct Checkpoint {
+        uint32 fromBlock;
+        uint224 votes;
+    }
+&nbsp;
+    bytes32 private constant _DELEGATION_TYPEHASH =
+        keccak256("Delegation(address delegatee,uint256 nonce,uint256 expiry)");
+&nbsp;
+    mapping(address =&gt; address) private _delegates;
+    mapping(address =&gt; Checkpoint[]) private _checkpoints;
+    Checkpoint[] private _totalSupplyCheckpoints;
+&nbsp;
+    /**
+     * @dev Emitted when an account changes their delegate.
+     */
+    event DelegateChanged(address indexed delegator, address indexed fromDelegate, address indexed toDelegate);
+&nbsp;
+    /**
+     * @dev Emitted when a token transfer or delegate change results in changes to an account's voting power.
+     */
+    event DelegateVotesChanged(address indexed delegate, uint256 previousBalance, uint256 newBalance);
+&nbsp;
+    /**
+     * @dev Get the `pos`-th checkpoint for `account`.
+     */
+<span class="fstat-no" title="function not covered" >    function checkpoints(address account, uint32 pos) public view virtual returns (Checkpoint memory) {</span>
+<span class="cstat-no" title="statement not covered" >        return _checkpoints[account][pos];</span>
+    }
+&nbsp;
+    /**
+     * @dev Get number of checkpoints for `account`.
+     */
+<span class="fstat-no" title="function not covered" >    function numCheckpoints(address account) public view virtual returns (uint32) {</span>
+<span class="cstat-no" title="statement not covered" >        return SafeCast.toUint32(_checkpoints[account].length);</span>
+    }
+&nbsp;
+    /**
+     * @dev Get the address `account` is currently delegating to.
+     */
+<span class="fstat-no" title="function not covered" >    function delegates(address account) public view virtual returns (address) {</span>
+<span class="cstat-no" title="statement not covered" >        return _delegates[account];</span>
+    }
+&nbsp;
+    /**
+     * @dev Gets the current votes balance for `account`
+     */
+<span class="fstat-no" title="function not covered" >    function getVotes(address account) public view returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        uint256 pos = _checkpoints[account].length;</span>
+<span class="cstat-no" title="statement not covered" >        return pos == 0 ? 0 : _checkpoints[account][pos - 1].votes;</span>
+    }
+&nbsp;
+    /**
+     * @dev Retrieve the number of votes for `account` at the end of `blockNumber`.
+     *
+     * Requirements:
+     *
+     * - `blockNumber` must have been already mined
+     */
+<span class="fstat-no" title="function not covered" >    function getPastVotes(address account, uint256 blockNumber) public view returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        require(blockNumber &lt; block.number, "ERC20Votes: block not yet mined")</span>;
+<span class="cstat-no" title="statement not covered" >        return _checkpointsLookup(_checkpoints[account], blockNumber);</span>
+    }
+&nbsp;
+    /**
+     * @dev Retrieve the `totalSupply` at the end of `blockNumber`. Note, this value is the sum of all balances.
+     * It is but NOT the sum of all the delegated votes!
+     *
+     * Requirements:
+     *
+     * - `blockNumber` must have been already mined
+     */
+<span class="fstat-no" title="function not covered" >    function getPastTotalSupply(uint256 blockNumber) public view returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        require(blockNumber &lt; block.number, "ERC20Votes: block not yet mined")</span>;
+<span class="cstat-no" title="statement not covered" >        return _checkpointsLookup(_totalSupplyCheckpoints, blockNumber);</span>
+    }
+&nbsp;
+    /**
+     * @dev Lookup a value in a list of (sorted) checkpoints.
+     */
+<span class="fstat-no" title="function not covered" >    function _checkpointsLookup(Checkpoint[] storage ckpts, uint256 blockNumber) private view returns (uint256) {</span>
+        // We run a binary search to look for the earliest checkpoint taken after `blockNumber`.
+        //
+        // During the loop, the index of the wanted checkpoint remains in the range [low-1, high).
+        // With each iteration, either `low` or `high` is moved towards the middle of the range to maintain the invariant.
+        // - If the middle checkpoint is after `blockNumber`, we look in [low, mid)
+        // - If the middle checkpoint is before or equal to `blockNumber`, we look in [mid+1, high)
+        // Once we reach a single value (when low == high), we've found the right checkpoint at the index high-1, if not
+        // out of bounds (in which case we're looking too far in the past and the result is 0).
+        // Note that if the latest checkpoint available is exactly for `blockNumber`, we end up with an index that is
+        // past the end of the array, so we technically don't find a checkpoint after `blockNumber`, but it works out
+        // the same.
+<span class="cstat-no" title="statement not covered" >        uint256 high = ckpts.length;</span>
+<span class="cstat-no" title="statement not covered" >        uint256 low = 0;</span>
+<span class="cstat-no" title="statement not covered" >        while (low &lt; high) {</span>
+<span class="cstat-no" title="statement not covered" >            uint256 mid = Math.average(low, high);</span>
+<span class="cstat-no" title="statement not covered" >            if (ckpts[mid].fromBlock &gt; blockNumber) {</span>
+<span class="cstat-no" title="statement not covered" >                high = mid</span>;
+            } else {
+<span class="cstat-no" title="statement not covered" >                low = mid + 1</span>;
+            }
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return high == 0 ? 0 : ckpts[high - 1].votes;</span>
+    }
+&nbsp;
+    /**
+     * @dev Delegate votes from the sender to `delegatee`.
+     */
+<span class="fstat-no" title="function not covered" >    function delegate(address delegatee) public virtual {</span>
+<span class="cstat-no" title="statement not covered" >        return _delegate(_msgSender(), delegatee);</span>
+    }
+&nbsp;
+    /**
+     * @dev Delegates votes from signer to `delegatee`
+     */
+<span class="fstat-no" title="function not covered" >    function delegateBySig(</span>
+        address delegatee,
+        uint256 nonce,
+        uint256 expiry,
+        uint8 v,
+        bytes32 r,
+        bytes32 s
+    ) public virtual {
+<span class="cstat-no" title="statement not covered" >        require(block.timestamp &lt;= expiry, "ERC20Votes: signature expired")</span>;
+<span class="cstat-no" title="statement not covered" >        address signer = ECDSA.recover(</span>
+            _hashTypedDataV4(keccak256(abi.encode(_DELEGATION_TYPEHASH, delegatee, nonce, expiry))),
+            v,
+            r,
+            s
+        );
+<span class="cstat-no" title="statement not covered" >        require(nonce == _useNonce(signer), "ERC20Votes: invalid nonce")</span>;
+<span class="cstat-no" title="statement not covered" >        return _delegate(signer, delegatee);</span>
+    }
+&nbsp;
+    /**
+     * @dev Maximum token supply. Defaults to `type(uint224).max` (2^224^ - 1).
+     */
+<span class="fstat-no" title="function not covered" >    function _maxSupply() internal view virtual returns (uint224) {</span>
+<span class="cstat-no" title="statement not covered" >        return type(uint224).max;</span>
+    }
+&nbsp;
+    /**
+     * @dev Snapshots the totalSupply after it has been increased.
+     */
+<span class="fstat-no" title="function not covered" >    function _mint(address account, uint256 amount) internal virtual override {</span>
+<span class="cstat-no" title="statement not covered" >        super._mint(account, amount)</span>;
+<span class="cstat-no" title="statement not covered" >        require(totalSupply() &lt;= _maxSupply(), "ERC20Votes: total supply risks overflowing votes")</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        _writeCheckpoint(_totalSupplyCheckpoints, _add, amount)</span>;
+    }
+&nbsp;
+    /**
+     * @dev Snapshots the totalSupply after it has been decreased.
+     */
+<span class="fstat-no" title="function not covered" >    function _burn(address account, uint256 amount) internal virtual override {</span>
+<span class="cstat-no" title="statement not covered" >        super._burn(account, amount)</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        _writeCheckpoint(_totalSupplyCheckpoints, _subtract, amount)</span>;
+    }
+&nbsp;
+    /**
+     * @dev Move voting power when tokens are transferred.
+     *
+     * Emits a {DelegateVotesChanged} event.
+     */
+<span class="fstat-no" title="function not covered" >    function _afterTokenTransfer(</span>
+        address from,
+        address to,
+        uint256 amount
+    ) internal virtual override {
+<span class="cstat-no" title="statement not covered" >        super._afterTokenTransfer(from, to, amount)</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        _moveVotingPower(delegates(from), delegates(to), amount)</span>;
+    }
+&nbsp;
+    /**
+     * @dev Change delegation for `delegator` to `delegatee`.
+     *
+     * Emits events {DelegateChanged} and {DelegateVotesChanged}.
+     */
+<span class="fstat-no" title="function not covered" >    function _delegate(address delegator, address delegatee) internal virtual {</span>
+<span class="cstat-no" title="statement not covered" >        address currentDelegate = delegates(delegator);</span>
+<span class="cstat-no" title="statement not covered" >        uint256 delegatorBalance = balanceOf(delegator);</span>
+<span class="cstat-no" title="statement not covered" >        _delegates[delegator] = delegatee</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        emit DelegateChanged(delegator, currentDelegate, delegatee);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        _moveVotingPower(currentDelegate, delegatee, delegatorBalance)</span>;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _moveVotingPower(</span>
+        address src,
+        address dst,
+        uint256 amount
+    ) private {
+<span class="cstat-no" title="statement not covered" >        if (src != dst &amp;&amp; amount &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >            if (src != address(0)) {</span>
+<span class="cstat-no" title="statement not covered" >                (uint256 oldWeight, uint256 newWeight) = _writeCheckpoint(_checkpoints[src], _subtract, amount);</span>
+<span class="cstat-no" title="statement not covered" >                emit DelegateVotesChanged(src, oldWeight, newWeight);</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            if (dst != address(0)) {</span>
+<span class="cstat-no" title="statement not covered" >                (uint256 oldWeight, uint256 newWeight) = _writeCheckpoint(_checkpoints[dst], _add, amount);</span>
+<span class="cstat-no" title="statement not covered" >                emit DelegateVotesChanged(dst, oldWeight, newWeight);</span>
+            }
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _writeCheckpoint(</span>
+        Checkpoint[] storage ckpts,
+        function(uint256, uint256) view returns (uint256) op,
+        uint256 delta
+    ) private returns (uint256 oldWeight, uint256 newWeight) {
+<span class="cstat-no" title="statement not covered" >        uint256 pos = ckpts.length;</span>
+<span class="cstat-no" title="statement not covered" >        oldWeight = pos == 0 ? 0 : ckpts[pos - 1].votes</span>;
+<span class="cstat-no" title="statement not covered" >        newWeight = op(oldWeight, delta)</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (pos &gt; 0 &amp;&amp; ckpts[pos - 1].fromBlock == block.number) {</span>
+<span class="cstat-no" title="statement not covered" >            ckpts[pos - 1].votes = SafeCast.toUint224(newWeight)</span>;
+        } else {
+<span class="cstat-no" title="statement not covered" >            ckpts.push(Checkpoint({fromBlock: SafeCast.toUint32(block.number), votes: SafeCast.toUint224(newWeight)}))</span>;
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _add(uint256 a, uint256 b) private pure returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        return a + b;</span>
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _subtract(uint256 a, uint256 b) private pure returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        return a - b;</span>
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Nov 15 2021 22:59:27 GMT+0500 (Pakistan Standard Time)
+</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>

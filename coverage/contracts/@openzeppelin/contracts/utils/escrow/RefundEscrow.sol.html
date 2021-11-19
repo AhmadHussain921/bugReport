@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/@openzeppelin/contracts/utils/escrow/RefundEscrow.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../index.html">all files</a> / <a href="index.html">contracts/@openzeppelin/contracts/utils/escrow/</a> RefundEscrow.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/8</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/16</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+&nbsp;
+pragma solidity ^0.8.0;
+&nbsp;
+import "./ConditionalEscrow.sol";
+&nbsp;
+/**
+ * @title RefundEscrow
+ * @dev Escrow that holds funds for a beneficiary, deposited from multiple
+ * parties.
+ * @dev Intended usage: See {Escrow}. Same usage guidelines apply here.
+ * @dev The owner account (that is, the contract that instantiates this
+ * contract) may deposit, close the deposit period, and allow for either
+ * withdrawal by the beneficiary, or refunds to the depositors. All interactions
+ * with `RefundEscrow` will be made through the owner contract.
+ */
+contract RefundEscrow is ConditionalEscrow {
+    using Address for address payable;
+&nbsp;
+    enum State {
+        Active,
+        Refunding,
+        Closed
+    }
+&nbsp;
+    event RefundsClosed();
+    event RefundsEnabled();
+&nbsp;
+    State private _state;
+    address payable private immutable _beneficiary;
+&nbsp;
+    /**
+     * @dev Constructor.
+     * @param beneficiary_ The beneficiary of the deposits.
+     */
+<span class="fstat-no" title="function not covered" >    constructor(address payable beneficiary_) {</span>
+<span class="cstat-no" title="statement not covered" >        require(beneficiary_ != address(0), "RefundEscrow: beneficiary is the zero address")</span>;
+<span class="cstat-no" title="statement not covered" >        _beneficiary = beneficiary_</span>;
+<span class="cstat-no" title="statement not covered" >        _state = State.Active</span>;
+    }
+&nbsp;
+    /**
+     * @return The current state of the escrow.
+     */
+<span class="fstat-no" title="function not covered" >    function state() public view virtual returns (State) {</span>
+<span class="cstat-no" title="statement not covered" >        return _state;</span>
+    }
+&nbsp;
+    /**
+     * @return The beneficiary of the escrow.
+     */
+<span class="fstat-no" title="function not covered" >    function beneficiary() public view virtual returns (address payable) {</span>
+<span class="cstat-no" title="statement not covered" >        return _beneficiary;</span>
+    }
+&nbsp;
+    /**
+     * @dev Stores funds that may later be refunded.
+     * @param refundee The address funds will be sent to if a refund occurs.
+     */
+<span class="fstat-no" title="function not covered" >    function deposit(address refundee) public payable virtual override {</span>
+<span class="cstat-no" title="statement not covered" >        require(state() == State.Active, "RefundEscrow: can only deposit while active")</span>;
+<span class="cstat-no" title="statement not covered" >        super.deposit(refundee)</span>;
+    }
+&nbsp;
+    /**
+     * @dev Allows for the beneficiary to withdraw their funds, rejecting
+     * further deposits.
+     */
+<span class="fstat-no" title="function not covered" >    function close() public virtual onlyOwner {</span>
+<span class="cstat-no" title="statement not covered" >        require(state() == State.Active, "RefundEscrow: can only close while active")</span>;
+<span class="cstat-no" title="statement not covered" >        _state = State.Closed</span>;
+<span class="cstat-no" title="statement not covered" >        emit RefundsClosed();</span>
+    }
+&nbsp;
+    /**
+     * @dev Allows for refunds to take place, rejecting further deposits.
+     */
+<span class="fstat-no" title="function not covered" >    function enableRefunds() public virtual onlyOwner {</span>
+<span class="cstat-no" title="statement not covered" >        require(state() == State.Active, "RefundEscrow: can only enable refunds while active")</span>;
+<span class="cstat-no" title="statement not covered" >        _state = State.Refunding</span>;
+<span class="cstat-no" title="statement not covered" >        emit RefundsEnabled();</span>
+    }
+&nbsp;
+    /**
+     * @dev Withdraws the beneficiary's funds.
+     */
+<span class="fstat-no" title="function not covered" >    function beneficiaryWithdraw() public virtual {</span>
+<span class="cstat-no" title="statement not covered" >        require(state() == State.Closed, "RefundEscrow: beneficiary can only withdraw while closed")</span>;
+<span class="cstat-no" title="statement not covered" >        beneficiary().sendValue(address(this).balance)</span>;
+    }
+&nbsp;
+    /**
+     * @dev Returns whether refundees can withdraw their deposits (be refunded). The overridden function receives a
+     * 'payee' argument, but we ignore it here since the condition is global, not per-payee.
+     */
+<span class="fstat-no" title="function not covered" >    function withdrawalAllowed(address) public view override returns (bool) {</span>
+<span class="cstat-no" title="statement not covered" >        return state() == State.Refunding;</span>
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Nov 15 2021 22:59:27 GMT+0500 (Pakistan Standard Time)
+</div>
+</div>
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

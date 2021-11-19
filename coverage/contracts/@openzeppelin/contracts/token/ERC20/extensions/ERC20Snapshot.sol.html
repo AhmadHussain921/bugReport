@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts/@openzeppelin/contracts/token/ERC20/extensions/ERC20Snapshot.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../../../../prettify.css" />
+    <link rel="stylesheet" href="../../../../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../../../../index.html">all files</a> / <a href="index.html">contracts/@openzeppelin/contracts/token/ERC20/extensions/</a> ERC20Snapshot.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/33</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/32</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: MIT
+&nbsp;
+pragma solidity ^0.8.0;
+&nbsp;
+import "../ERC20.sol";
+import "../../../utils/Arrays.sol";
+import "../../../utils/Counters.sol";
+&nbsp;
+/**
+ * @dev This contract extends an ERC20 token with a snapshot mechanism. When a snapshot is created, the balances and
+ * total supply at the time are recorded for later access.
+ *
+ * This can be used to safely create mechanisms based on token balances such as trustless dividends or weighted voting.
+ * In naive implementations it's possible to perform a "double spend" attack by reusing the same balance from different
+ * accounts. By using snapshots to calculate dividends or voting power, those attacks no longer apply. It can also be
+ * used to create an efficient ERC20 forking mechanism.
+ *
+ * Snapshots are created by the internal {_snapshot} function, which will emit the {Snapshot} event and return a
+ * snapshot id. To get the total supply at the time of a snapshot, call the function {totalSupplyAt} with the snapshot
+ * id. To get the balance of an account at the time of a snapshot, call the {balanceOfAt} function with the snapshot id
+ * and the account address.
+ *
+ * NOTE: Snapshot policy can be customized by overriding the {_getCurrentSnapshotId} method. For example, having it
+ * return `block.number` will trigger the creation of snapshot at the begining of each new block. When overridding this
+ * function, be careful about the monotonicity of its result. Non-monotonic snapshot ids will break the contract.
+ *
+ * Implementing snapshots for every block using this method will incur significant gas costs. For a gas-efficient
+ * alternative consider {ERC20Votes}.
+ *
+ * ==== Gas Costs
+ *
+ * Snapshots are efficient. Snapshot creation is _O(1)_. Retrieval of balances or total supply from a snapshot is _O(log
+ * n)_ in the number of snapshots that have been created, although _n_ for a specific account will generally be much
+ * smaller since identical balances in subsequent snapshots are stored as a single entry.
+ *
+ * There is a constant overhead for normal ERC20 transfers due to the additional snapshot bookkeeping. This overhead is
+ * only significant for the first transfer that immediately follows a snapshot for a particular account. Subsequent
+ * transfers will have normal cost until the next snapshot, and so on.
+ */
+&nbsp;
+abstract contract ERC20Snapshot is ERC20 {
+    // Inspired by Jordi Baylina's MiniMeToken to record historical balances:
+    // https://github.com/Giveth/minimd/blob/ea04d950eea153a04c51fa510b068b9dded390cb/contracts/MiniMeToken.sol
+&nbsp;
+    using Arrays for uint256[];
+    using Counters for Counters.Counter;
+&nbsp;
+    // Snapshotted values have arrays of ids and the value corresponding to that id. These could be an array of a
+    // Snapshot struct, but that would impede usage of functions that work on an array.
+    struct Snapshots {
+        uint256[] ids;
+        uint256[] values;
+    }
+&nbsp;
+    mapping(address =&gt; Snapshots) private _accountBalanceSnapshots;
+    Snapshots private _totalSupplySnapshots;
+&nbsp;
+    // Snapshot ids increase monotonically, with the first value being 1. An id of 0 is invalid.
+    Counters.Counter private _currentSnapshotId;
+&nbsp;
+    /**
+     * @dev Emitted by {_snapshot} when a snapshot identified by `id` is created.
+     */
+    event Snapshot(uint256 id);
+&nbsp;
+    /**
+     * @dev Creates a new snapshot and returns its snapshot id.
+     *
+     * Emits a {Snapshot} event that contains the same id.
+     *
+     * {_snapshot} is `internal` and you have to decide how to expose it externally. Its usage may be restricted to a
+     * set of accounts, for example using {AccessControl}, or it may be open to the public.
+     *
+     * [WARNING]
+     * ====
+     * While an open way of calling {_snapshot} is required for certain trust minimization mechanisms such as forking,
+     * you must consider that it can potentially be used by attackers in two ways.
+     *
+     * First, it can be used to increase the cost of retrieval of values from snapshots, although it will grow
+     * logarithmically thus rendering this attack ineffective in the long term. Second, it can be used to target
+     * specific accounts and increase the cost of ERC20 transfers for them, in the ways specified in the Gas Costs
+     * section above.
+     *
+     * We haven't measured the actual numbers; if this is something you're interested in please reach out to us.
+     * ====
+     */
+<span class="fstat-no" title="function not covered" >    function _snapshot() internal virtual returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        _currentSnapshotId.increment()</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        uint256 currentId = _getCurrentSnapshotId();</span>
+<span class="cstat-no" title="statement not covered" >        emit Snapshot(currentId);</span>
+<span class="cstat-no" title="statement not covered" >        return currentId;</span>
+    }
+&nbsp;
+    /**
+     * @dev Get the current snapshotId
+     */
+<span class="fstat-no" title="function not covered" >    function _getCurrentSnapshotId() internal view virtual returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        return _currentSnapshotId.current();</span>
+    }
+&nbsp;
+    /**
+     * @dev Retrieves the balance of `account` at the time `snapshotId` was created.
+     */
+<span class="fstat-no" title="function not covered" >    function balanceOfAt(address account, uint256 snapshotId) public view virtual returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        (bool snapshotted, uint256 value) = _valueAt(snapshotId, _accountBalanceSnapshots[account]);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return snapshotted ? value : balanceOf(account);</span>
+    }
+&nbsp;
+    /**
+     * @dev Retrieves the total supply at the time `snapshotId` was created.
+     */
+<span class="fstat-no" title="function not covered" >    function totalSupplyAt(uint256 snapshotId) public view virtual returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        (bool snapshotted, uint256 value) = _valueAt(snapshotId, _totalSupplySnapshots);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        return snapshotted ? value : totalSupply();</span>
+    }
+&nbsp;
+    // Update balance and/or total supply snapshots before the values are modified. This is implemented
+    // in the _beforeTokenTransfer hook, which is executed for _mint, _burn, and _transfer operations.
+<span class="fstat-no" title="function not covered" >    function _beforeTokenTransfer(</span>
+        address from,
+        address to,
+        uint256 amount
+    ) internal virtual override {
+<span class="cstat-no" title="statement not covered" >        super._beforeTokenTransfer(from, to, amount)</span>;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (from == address(0)) {</span>
+            // mint
+<span class="cstat-no" title="statement not covered" >            _updateAccountSnapshot(to)</span>;
+<span class="cstat-no" title="statement not covered" >            _updateTotalSupplySnapshot()</span>;
+        } else <span class="cstat-no" title="statement not covered" >if (to == address(0)) {</span>
+            // burn
+<span class="cstat-no" title="statement not covered" >            _updateAccountSnapshot(from)</span>;
+<span class="cstat-no" title="statement not covered" >            _updateTotalSupplySnapshot()</span>;
+        } else {
+            // transfer
+<span class="cstat-no" title="statement not covered" >            _updateAccountSnapshot(from)</span>;
+<span class="cstat-no" title="statement not covered" >            _updateAccountSnapshot(to)</span>;
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _valueAt(uint256 snapshotId, Snapshots storage snapshots) private view returns (bool, uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        require(snapshotId &gt; 0, "ERC20Snapshot: id is 0")</span>;
+<span class="cstat-no" title="statement not covered" >        require(snapshotId &lt;= _getCurrentSnapshotId(), "ERC20Snapshot: nonexistent id")</span>;
+&nbsp;
+        // When a valid snapshot is queried, there are three possibilities:
+        //  a) The queried value was not modified after the snapshot was taken. Therefore, a snapshot entry was never
+        //  created for this id, and all stored snapshot ids are smaller than the requested one. The value that corresponds
+        //  to this id is the current one.
+        //  b) The queried value was modified after the snapshot was taken. Therefore, there will be an entry with the
+        //  requested id, and its value is the one to return.
+        //  c) More snapshots were created after the requested one, and the queried value was later modified. There will be
+        //  no entry for the requested id: the value that corresponds to it is that of the smallest snapshot id that is
+        //  larger than the requested one.
+        //
+        // In summary, we need to find an element in an array, returning the index of the smallest value that is larger if
+        // it is not found, unless said value doesn't exist (e.g. when all values are smaller). Arrays.findUpperBound does
+        // exactly this.
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        uint256 index = snapshots.ids.findUpperBound(snapshotId);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (index == snapshots.ids.length) {</span>
+<span class="cstat-no" title="statement not covered" >            return (false, 0);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            return (true, snapshots.values[index]);</span>
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _updateAccountSnapshot(address account) private {</span>
+<span class="cstat-no" title="statement not covered" >        _updateSnapshot(_accountBalanceSnapshots[account], balanceOf(account))</span>;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _updateTotalSupplySnapshot() private {</span>
+<span class="cstat-no" title="statement not covered" >        _updateSnapshot(_totalSupplySnapshots, totalSupply())</span>;
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _updateSnapshot(Snapshots storage snapshots, uint256 currentValue) private {</span>
+<span class="cstat-no" title="statement not covered" >        uint256 currentId = _getCurrentSnapshotId();</span>
+<span class="cstat-no" title="statement not covered" >        if (_lastSnapshotId(snapshots.ids) &lt; currentId) {</span>
+<span class="cstat-no" title="statement not covered" >            snapshots.ids.push(currentId)</span>;
+<span class="cstat-no" title="statement not covered" >            snapshots.values.push(currentValue)</span>;
+        }
+    }
+&nbsp;
+<span class="fstat-no" title="function not covered" >    function _lastSnapshotId(uint256[] storage ids) private view returns (uint256) {</span>
+<span class="cstat-no" title="statement not covered" >        if (ids.length == 0) {</span>
+<span class="cstat-no" title="statement not covered" >            return 0;</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            return ids[ids.length - 1];</span>
+        }
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Nov 15 2021 22:59:27 GMT+0500 (Pakistan Standard Time)
+</div>
+</div>
+<script src="../../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../../../../sorter.js"></script>
+</body>
+</html>
