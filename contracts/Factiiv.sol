@@ -3,10 +3,9 @@
 pragma solidity 0.8.4; 
 
 import "./FactiivStore.sol";
-import "@openzeppelin/contracts/access/AccessControl.sol";
-import "./_opengsn/_BaseRelayRecipient.sol";
+import "./_openZeppelin/AccessControl.sol";
 
-contract Factiiv is FactiivStore, BaseRelayRecipient, AccessControl{
+contract Factiiv is FactiivStore, AccessControl {
 
   using Bytes32Set for Bytes32Set.Set;
 
@@ -21,10 +20,10 @@ contract Factiiv is FactiivStore, BaseRelayRecipient, AccessControl{
   // and probably every other function using Bytes as arguments 
   // Error: invalid arrayify value ()
 
-  constructor(address root ,address forwarder) {
-      _setupRole(DEFAULT_ADMIN_ROLE, root);
+  constructor(address root, address forwarder) {
+    _setupRole(DEFAULT_ADMIN_ROLE, root);
     _setupRole(GOVERNANCE_ROLE, root);
-    trustedForwarder = forwarder;
+    _setTrustedForwarder(forwarder);
   }
 
   string public override versionRecipient = "2.2.0";
@@ -32,54 +31,54 @@ contract Factiiv is FactiivStore, BaseRelayRecipient, AccessControl{
    * Master Tables
    ***************************/
 
-  function setMinimumAmount(uint256 minimum) external onlyRole(GOVERNANCE_ROLE)  {
+  function setMinimumAmount(uint256 minimum) external onlyRole(GOVERNANCE_ROLE) {
  
     minimumAmount = minimum;
       emit SetMinimum(_msgSender(), minimum);
   }
     function getCurrentAccount() external view returns (address)
   {
-    return address(_MsgSender());
+    return address(_msgSender());
   }
 
 
   function createRelationshipType(string memory desc)  external onlyRole(GOVERNANCE_ROLE)  returns (bytes32 id) {
-    id = _createRelationshipType(_MsgSender(), desc);
+    id = _createRelationshipType(_msgSender(), desc);
   }
 
   function updateRelationshipType(bytes32 id, string memory desc) external onlyRole(GOVERNANCE_ROLE) {
-    _updateRelationshipType(_MsgSender(), id, desc);
+    _updateRelationshipType(_msgSender(), id, desc);
   }
 
   function createAttestationType(string memory desc) external onlyRole(GOVERNANCE_ROLE)  returns (bytes32 id) {
-    id = _createAttestationType(_MsgSender(), desc);
+    id = _createAttestationType(_msgSender(), desc);
   }
 
   function updateAttestationType(bytes32 id, string memory desc) external  onlyRole(GOVERNANCE_ROLE) {
-    _updateAttestationType(_MsgSender(), id, desc);
+    _updateAttestationType(_msgSender(), id, desc);
   }
 
   /***************************
    * Attestations
    ***************************/
   function createAttestation(address subject, bytes32 typeId, string memory payload) external onlyRole(ATTESTOR_ROLE) returns (bytes32 id) {
-    id = _createAttestation(_MsgSender(), subject, typeId, payload);
+    id = _createAttestation(_msgSender(), subject, typeId, payload);
   }
 
   function updateAttestation(address subject, bytes32 id, string memory payload) external onlyRole(ATTESTOR_ROLE) {
-    _updateAttestation(_MsgSender(), subject, id, payload);
+    _updateAttestation(_msgSender(), subject, id, payload);
   }
 
   /***************************
    * Relationships
    ***************************/
   function createRelationship(bytes32 typeId, string memory desc, uint256 amount, address to) external returns(bytes32 id) {
-    id = _createRelationship(_MsgSender(), typeId, desc, amount, to);
+    id = _createRelationship(_msgSender(), typeId, desc, amount, to);
   }
 
   function updateRelationship(bytes32 id, Lifecycle lifecycle, string memory metadata) external {
     require(
-      canUpdateRelationship(_MsgSender(), id), 
+      canUpdateRelationship(_msgSender(), id), 
       "Factiiv.updateRelationship : permission denied"
     );
 
@@ -99,7 +98,7 @@ contract Factiiv is FactiivStore, BaseRelayRecipient, AccessControl{
     Require normalized input (e.g. "1" to "5") for ratings strings. Consider efficiency.
     */
 
-    _updateRelationship(_MsgSender(), id, lifecycle, metadata);
+    _updateRelationship(_msgSender(), id, lifecycle, metadata);
   }
 
   /***************************
@@ -114,11 +113,11 @@ contract Factiiv is FactiivStore, BaseRelayRecipient, AccessControl{
     //   relationshipStage(id) == Lifecycle.Proposed,
     //   "Factiiv.deleteRelationship : relationship is accepted"
     // );
-    _deleteRelationship(_MsgSender(), id);
+    _deleteRelationship(_msgSender(), id);
   }
 
   function arbitrationDelete(bytes32 id) external  {
-    _deleteRelationship(_MsgSender(), id);
+    _deleteRelationship(_msgSender(), id);
   }
 
   /***************************
@@ -137,8 +136,8 @@ contract Factiiv is FactiivStore, BaseRelayRecipient, AccessControl{
     return(
       r.from == updater ||
       r.to == updater ||
-      hasRole(ARBITRATOR_ROLE, _MsgSender()) ||
-      hasRole(GOVERNANCE_ROLE, _MsgSender())
+      hasRole(ARBITRATOR_ROLE, _msgSender()) ||
+      hasRole(GOVERNANCE_ROLE, _msgSender())
     );
   }  
 
