@@ -32,15 +32,12 @@ contract Factiiv is FactiivStore, AccessControl {
    ***************************/
 
   function setMinimumAmount(uint256 minimum) external onlyRole(GOVERNANCE_ROLE) {
- 
     minimumAmount = minimum;
-      emit SetMinimum(_msgSender(), minimum);
+    emit SetMinimum(_msgSender(), minimum);
   }
-    function getCurrentAccount() external view returns (address)
-  {
+  function getCurrentAccount() external view returns (address) {
     return address(_msgSender());
   }
-
 
   function createRelationshipType(string memory desc)  external onlyRole(GOVERNANCE_ROLE)  returns (bytes32 id) {
     id = _createRelationshipType(_msgSender(), desc);
